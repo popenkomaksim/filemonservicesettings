@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Лог</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="/floating-labels.css" rel="stylesheet" />
+
+    <script>
+      window.onload = function () {
+        document.getElementById("filemonserviceLogs").scrollTop =
+          document.getElementById("filemonserviceLogs").scrollHeight;
+        document.getElementById("unmountmountLogs").scrollTop =
+          document.getElementById("unmountmountLogs").scrollHeight;
+        document.getElementById("turnkeyLogs").scrollTop =
+          document.getElementById("turnkeyLogs").scrollHeight;
+        document.getElementById("filemonservicesettingsLogs").scrollTop =
+          document.getElementById("filemonservicesettingsLogs").scrollHeight;
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Логи системи</h1>
+      </div>
+      <div class="form-outline mb-4">
+        <textarea class="form-control textarea" id="filemonserviceLogs" rows="3">{{
+          filemonserviceLogs.stdout
+        }}</textarea>
+        <label class="form-label" for="filemonserviceLogs"
+          >journalctl -n 1000 -u filemonservice.service
+        </label>
+
+        <textarea class="form-control textarea" id="unmountmountLogs" rows="3">{{
+          unmountmountLogs.stdout
+        }}</textarea>
+        <label class="form-label" for="unmountmountLogs"
+          >journalctl -n 1000 -u unmountmoun.service
+        </label>
+
+        <textarea class="form-control textarea" id="turnkeyLogs" rows="3">{{
+          turnkeyLogs.stdout
+        }}</textarea>
+        <label class="form-label" for="turnkeyLogs"
+          >journalctl -n 1000 -u turnkey.service
+        </label>
+
+        <textarea
+          class="form-control textarea"
+          id="filemonservicesettingsLogs"
+          rows="3"
+          >{{ filemonservicesettingsLogs.stdout }}</textarea
+        >
+        <label class="form-label" for="filemonservicesettingsLogs"
+          >journalctl -n 1000 -u filemonservicesettings.service
+        </label>
+
+        <h2>Помилки запуску команд збирання логів (пусто це добре)</h2>
+
+        <textarea class="form-control textarea textarea-stderr" id="filemonserviceLogsStderr" rows="3">{{
+          filemonserviceLogs.stderr
+        }}</textarea>
+        <label class="form-label" for="filemonserviceLogsStderr"
+          >stderr – journalctl -n 1000 -u filemonservice.service
+        </label>
+
+        <textarea class="form-control textarea textarea-stderr" id="unmountmountLogsStderr" rows="3">{{
+          unmountmountLogs.stderr
+        }}</textarea>
+        <label class="form-label" for="unmountmountLogsStderr"
+          >stderr – journalctl -n 1000 -u unmountmoun.service
+        </label>
+
+        <textarea class="form-control textarea textarea-stderr" id="turnkeyLogsStderr" rows="3">{{
+          turnkeyLogs.stderr
+        }}</textarea>
+        <label class="form-label" for="turnkeyLogsStderr"
+          >stderr – journalctl -n 1000 -u turnkey.service
+        </label>
+
+        <textarea
+          class="form-control textarea textarea-stderr"
+          id="filemonservicesettingsLogsStderr"
+          rows="3"
+          >{{ filemonservicesettingsLogs.stderr }}</textarea
+        >
+        <label class="form-label" for="filemonservicesettingsLogsStderr"
+          >stderr – journalctl -n 1000 -u filemonservicesettings.service
+        </label>
+
+      </div>
+    </div>
+  </body>
+</html>

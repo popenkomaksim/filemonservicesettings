@@ -1,0 +1,16 @@
+[Unit]
+Description=UnmountMountService
+After=network.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=pi
+Restart=on-failure
+RestartSec=1s
+ExecStart=/usr/bin/unbuffer /home/pi/unmount-mount.sh
+WorkingDirectory=/home/pi/
+
+[Install]
+WantedBy=multi-user.target

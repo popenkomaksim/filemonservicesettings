@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Налаштування Системи</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="/floating-labels.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Налаштування Системи</h1>
+      </div>
+      <form class="form-block" action="/" method="POST">
+        <div class="text-center mb-2">
+          <h2 class="h3 mb-3 font-weight-normal">Налаштування Тенета паролю</h2>
+          {{ message }}
+        </div>
+
+        <div class="form-label-group">
+          <input
+            id="inputPassword"
+            autocorrect="off"
+            autocapitalize="none"
+            pattern="(?=.*[0-9]+).(?=.*[`~!@#$%^&*()_+\-={}\\|:;\'<>,.?\[\]]+).{8,}"
+            name="password"
+            class="form-control"
+            placeholder="Пароль"
+            value="{{ password }}"
+            required
+          />
+          <label for="inputPassword">Пароль</label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+          Зберегти
+        </button>
+      </form>
+
+      <form class="form-block" action="/forgetwifi" method="POST">
+        <div class="text-center mb-4">
+          <h2 class="h3 mb-3 font-weight-normal">Забути Wi-Fi мережі</h2>
+          Після натискання "Забути Wi-Fi мережі" сторінка не перезавантажиться —
+          відбудеться від'єднання девайсу від мережі, і за 1.5хв створиться
+          мережа ConnectToConnect без паролю.
+          <br />
+          <br />
+          По замовчанню, девайc не забуває мережу testtest і паролем testtest,
+          котра може бути використана в цілях тестування.
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+          Забути Wi-Fi мережі
+        </button>
+      </form>
+
+      <div class="form-block">
+        <a href="/logs" target="_blank">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">
+            Подивитись логи
+          </button>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
